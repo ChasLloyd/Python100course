@@ -2,8 +2,6 @@
 # FILE: Assignment05.py
 #
 # TITLE: Assignment 5 for UW "Foundations of Python" Course
-# 
-# TITLE: Assignment 5 for UW "Foundations of Python" Course
 #
 # DESCRIPTION: Program demonstrates the use of dictionaries, .json files, and
 # exception handling in addition to the capabilities demonstrated in
@@ -14,15 +12,17 @@
 #   adopting portions of code from the "Assignment05-Starter.py" file created
 #   by R Root
 #
+#   11/9/2025: Charles Lloyd, Tested code and uploaded to GitHub
+#
 #        1         2         3         4         5         6         7        7
 # ====== 0 ======= 0 ======= 0 ======= 0 ======= 0 ======= 0 ======= 0 ====== 9
-import _io
+
 # NOTES ------ NOTES ------ NOTES ------ NOTES ------ NOTES ------ NOTES
 
 
 # DIRECTIVES - DIRECTIVES - DIRECTIVES - DIRECTIVES - DIRECTIVES - DIRECTIVES
+import _io
 import json  # From Python standard library
-#from io import TextIOWrapper
 
 
 # CONSTANTS -- CONSTANTS -- CONSTANTS -- CONSTANTS -- CONSTANTS -- CONSTANTS
@@ -36,7 +36,6 @@ MENU: str = '''
     4. Exit the program.
 ----------------------------------------- 
 '''
-
 FILE_NAME: str = 'Enrollments.json'
 
 
@@ -45,7 +44,7 @@ student_first_name: str = ''        # Entered by user
 student_last_name: str = ''         # Entered by user
 course_name: str = ''               # Entered by user
 menu_choice: str = ''               # Selected by user
-file = _io.TextIOWrapper            # type needed to use the .close() in the finally block
+file = _io.TextIOWrapper            #
 student_data: dict = {}             # Entered by user
 students: list[dict[str, str]] = [] #
 valid_resp: bool = False            # Boolean, Entered by user
@@ -71,7 +70,6 @@ except Exception as e:
     print("-- Technical Error Message -- ")
     print(e, e.__doc__, type(e), sep='\n')
 finally:
-    print("closing file")
     if file.closed == False:
         file.close()
 
@@ -86,13 +84,12 @@ while True:           # Repeat until break out using option 4
             # Query user for input, validate, and create record
             correct = False
             while not correct:
-
                 try:
-                    student_first_name = input('\nPlease enter your FIRST name: ')
+                    student_first_name = input('\nPlease enter the FIRST name: ')
                     if not student_first_name.isalpha():
                         raise ValueError("The First name should not contain numbers.")
 
-                    student_last_name = input('\nPlease enter your LAST name: ')
+                    student_last_name = input('\nPlease enter the LAST name: ')
                     if not student_last_name.isalpha():
                         raise ValueError("The Last name should not contain numbers.")
 
@@ -119,7 +116,7 @@ while True:           # Repeat until break out using option 4
                     print("-- Technical Error Message -- ")
                     print(e, e.__doc__, type(e), sep='\n')
 
-    # put the strings into the student_data list
+            # put the strings into the student_data list
             student_data = {"name_first": student_first_name,
                             "name_last": student_last_name,
                             "name_course": course_name}
@@ -133,10 +130,10 @@ while True:           # Repeat until break out using option 4
                 for student_data in students:
                     print(f'{student_data["name_first"]},{student_data["name_last"]},'
                           f'{student_data["name_course"]}')
-                print('\n')
-                for student_data in students:
-                    print(f'{student_data["name_first"]} {student_data["name_last"]} '
-                          f'is registered for {student_data["name_course"]}')
+                #print('\n')
+                #for student_data in students:
+                #    print(f'{student_data["name_first"]} {student_data["name_last"]} '
+                #          f'is registered for {student_data["name_course"]}')
             else:
                 print('No data have been entered yet')
 
@@ -145,7 +142,7 @@ while True:           # Repeat until break out using option 4
                 try:
                     file = open(FILE_NAME, 'w')
                     json.dump(students, file, indent=2)
-                    print('Saved the record to file')
+                    print('Saved the records to file')
                     for row in students:
                         print(row)
                 except Exception as e:
@@ -158,7 +155,6 @@ while True:           # Repeat until break out using option 4
             else:
                 print('You must have data for at least one student before '
                                                             'saving to file')
-
 
         case '4':   # Exit the program
             # Inform user and Exit the program

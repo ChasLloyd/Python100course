@@ -1,0 +1,27 @@
+[
+  {
+    "name_first": "Charles",
+    "name_last": "Lloyd",
+    "name_course": "Python100"
+  },
+  {
+    "name_first": "Amelia",
+    "name_last": "DeLoach",
+    "name_course": "Java"
+  },
+  {
+    "name_first": "Charlie",
+    "name_last": "Lloyd",
+    "name_course": "Mechanics"
+  },
+  {
+    "name_first": "Zoe",
+    "name_last": "Lloyd",
+    "name_course": "Algebra"
+  },
+  {
+    "name_first": "Ginger",
+    "name_last": "Doggy",
+    "name_course": "Obedience"
+  }
+]
